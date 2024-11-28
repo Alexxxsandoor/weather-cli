@@ -4,7 +4,7 @@
   "description": "CLI for getting weather",
   "main": "weather.js",
   "type": "module",
-  "bin":{
+  "bin": {
     "weather": "weather.js"
   },
   "scripts": {
@@ -15,5 +15,9 @@
     "Weather"
   ],
   "author": "alexxxsandoor",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "dedent-js": "^1.0.1"
+  }
 }
