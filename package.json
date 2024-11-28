@@ -2,7 +2,11 @@
   "name": "weather-cli-alexxxsandoor",
   "version": "0.0.1",
   "description": "CLI for getting weather",
-  "main": "index.js",
+  "main": "weather.js",
+  "type": "module",
+  "bin":{
+    "weather": "weather.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
