@@ -1,6 +1,6 @@
 {
   "name": "weather-cli-alexxxsandoor",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "CLI for getting weather",
   "main": "weather.js",
   "type": "module",
@@ -16,6 +16,10 @@
   ],
   "author": "alexxxsandoor",
   "license": "ISC",
+  "responsitory":{
+    "type":"git",
+    "url":"https://github.com/Alexxxsandoor/weather-cli"
+  },
   "dependencies": {
     "axios": "^1.7.8",
     "chalk": "^5.3.0",
