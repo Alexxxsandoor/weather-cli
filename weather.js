@@ -13,13 +13,28 @@ const saveTokern = async (token) =>{
         printSuccess('Token saved!')
     } catch (error) {
         printError(error.message)
+    }   
+}
+
+const getForcast = async () =>{
+    try {
+        const weather = await getWeather(process.env.CITY ?? "Kyiv")
+        console.log(weather)
+    } catch (error) {
+        if(error?.response?.status == 404){
+            printError("bad city name")
+        }else if(error?.response?.status == 401){
+            printError("bad api token")
+        }else {
+            printError(error.message)
+        }
+        
     }
     
 }
 
 const initCLI = () =>{
     const args = getArgs(process.argv)
-
     if(args.h){
         printHelp()
     }
@@ -29,8 +44,7 @@ const initCLI = () =>{
     if(args.t){
        return saveTokern(args.t)
     }
-    getWeather('Kyiv')
-    // Вывести погоду
+    getForcast()
 };
 
 initCLI();
