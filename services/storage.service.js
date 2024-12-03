@@ -21,8 +21,8 @@ const saveKeyValue = async (key, value) => {
 
     //create-folder
     try {
-        if(!fs.existsSync(FOLDER_PATH)){
-            fs.mkdirSync(FOLDER_PATH);
+        if(!fs.existsSync(FOLDER_NAME)){
+            fs.mkdirSync(FOLDER_NAME);
         }
     } catch (error) {
         printError(error.message)
