@@ -16,9 +16,9 @@
   ],
   "author": "alexxxsandoor",
   "license": "ISC",
-  "responsitory":{
-    "type":"git",
-    "url":"https://github.com/Alexxxsandoor/weather-cli"
+  "responsitory": {
+    "type": "git",
+    "url": "https://github.com/Alexxxsandoor/weather-cli"
   },
   "dependencies": {
     "axios": "^1.7.8",

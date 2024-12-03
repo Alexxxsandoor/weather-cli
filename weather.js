@@ -46,16 +46,17 @@ const getForcast = async () =>{
     
 }
 
-const initCLI = () =>{
+const initCLI = () => {
     const args = getArgs(process.argv)
+
     if(args.h){
         return printHelp()
     }
     if(args.s){
-        return saveCity(args.s)
+        saveCity(args.s)
     }
     if(args.t){
-        return saveToken(args.t)
+        saveToken(args.t)
     }
     return getForcast()
 };

@@ -2,22 +2,27 @@ import { homedir } from 'os';
 import { join } from 'path';
 import { promises } from 'fs'
 
-const FILE_PATH = join(homedir(), 'weather-data.json')
+const FOLDER_NAME = join(homedir(), '/custom_cache')
+const FILE_PATH = join(FOLDER_NAME, 'weather-data.json')
 const TOKEN_DICTIONARY = {
     token: 'token',
     city: 'city'
 }
 
 const saveKeyValue = async (key, value) => {
-    const data = {}
+    let data = {}
 
     if(await isExist(FILE_PATH)){
         const file = await promises.readFile(FILE_PATH)
-        JSON.parse(file);
+        data = JSON.parse(file);
     }
 
-    data[key] = value;
-    console.log(data)
+    data[key] = value;    
+
+    //create-folder
+    const folder = await promises.readdir(FOLDER_NAME)
+    if(!folder) await promises.mkdir(FOLDER_NAME)
+
     await promises.writeFile(FILE_PATH, JSON.stringify(data));
 };
 
