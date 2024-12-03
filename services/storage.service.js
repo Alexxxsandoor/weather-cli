@@ -1,6 +1,6 @@
 import { homedir } from 'os';
 import { join } from 'path';
-import { promises } from 'fs'
+import fs, { promises } from 'fs'
 
 const FOLDER_NAME = join(homedir(), '/custom_cache')
 const FILE_PATH = join(FOLDER_NAME, 'weather-data.json')
@@ -20,8 +20,13 @@ const saveKeyValue = async (key, value) => {
     data[key] = value;    
 
     //create-folder
-    const folder = await promises.readdir(FOLDER_NAME)
-    if(!folder) await promises.mkdir(FOLDER_NAME)
+    try {
+        if(!fs.existsSync(FOLDER_PATH)){
+            fs.mkdirSync(FOLDER_PATH);
+        }
+    } catch (error) {
+        printError(error.message)
+    }
 
     await promises.writeFile(FILE_PATH, JSON.stringify(data));
 };
